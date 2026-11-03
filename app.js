@@ -1,13 +1,22 @@
 const searchBtn = document.getElementById("searchBtn");
+const result = document.getElementById("result");
 
 searchBtn.addEventListener("click", function(){
-    fetch('superheroes.php')
-    .then(response => response.text())
-    .then(data =>{
-        alert(data);
-    })
-    .catch(error =>{
-        alert("Unable to show superheroes");
-    });
+    const httpRequest = new XMLHttpRequest();
+    let searchItem = document.getElementById("searchItem").value;
+    let url = "superheroes.php?query=" + encodeURIComponent(searchItem);
+    
+    httpRequest.onreadystatechange = function(){
+        if (httpRequest.readyState === XMLHttpRequest.DONE){
+            if (httpRequest.status === 200){
+                result.innerHTML = httpRequest.responseText;
+            }
+            else{
+                result.innerHTML = "Superhero not found";
+            }
+        }
+    }
+    httpRequest.open('GET',url);
+    httpRequest.send();
 
 });

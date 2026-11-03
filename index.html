@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Avengers Character Search</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="app.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Avengers Character Search</h1>
-    <button id="searchBtn">Search</button>
+    <header>
+        <h1>Avengers Character Search</h1>
+    </header>
+    <div class="container">
+        <p>Search by Full Name or Alias:</p>
+        <input id="searchItem" type="text" placeholder="e.g. Captain America or Steve Rogers">
+        <button id="searchBtn">Search</button>
+        <br>
+        <h2>RESULT</h2>
+        <div id="result"></div>
+    </div>
 </body>
 </html>
